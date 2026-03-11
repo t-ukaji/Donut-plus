@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ドーナツ部PLUS+ | もう失敗しない、翌日ももちもちしっとり米粉パン</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --warm-cream: #FAF6F0;
+  --soft-beige: #F0E8DC;
+  --warm-brown: #8B6F4E;
+  --deep-brown: #5C4A32;
+  --accent-terracotta: #C4836A;
+  --accent-rose: #D4928B;
+  --soft-green: #A8B89C;
+  --text-dark: #3A3028;
+  --text-body: #5A4E42;
+  --text-light: #8A7E72;
+  --white: #FFFFFF;
+  --highlight-bg: #FFF8F0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  color: var(--text-body);
+  background: var(--warm-cream);
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.mincho {
+  font-family: 'Zen Maru Gothic', sans-serif;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes gentlePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+@keyframes floatSoft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== LAYOUT ===== */
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  padding: 72px 0;
+}
+
+/* ===== HERO / FIRST VIEW ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(170deg, var(--warm-cream) 0%, var(--soft-beige) 40%, #EDE4D6 100%);
+  padding: 80px 24px 60px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -30%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(196,131,106,0.08) 0%, transparent 70%);
+  animation: floatSoft 8s ease-in-out infinite;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  left: -20%;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168,184,156,0.1) 0%, transparent 70%);
+  animation: floatSoft 10s ease-in-out infinite 2s;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 1s ease-out;
+}
+
+.hero-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: var(--warm-brown);
+  background: rgba(139,111,78,0.08);
+  padding: 6px 20px;
+  border-radius: 30px;
+  margin-bottom: 28px;
+}
+
+.hero-copy {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: clamp(1.6rem, 6vw, 2.4rem);
+  font-weight: 600;
+  color: var(--deep-brown);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  letter-spacing: 0.04em;
+}
+
+.hero-copy em {
+  font-style: normal;
+  color: var(--accent-terracotta);
+  position: relative;
+}
+
+.hero-copy em::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: rgba(196,131,106,0.18);
+  border-radius: 3px;
+}
+
+.hero-sub {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 2;
+  margin-bottom: 40px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-deco {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  animation: floatSoft 4s ease-in-out infinite;
+}
+
+/* ===== BUTTONS ===== */
+.cta-btn {
+  display: inline-block;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--accent-terracotta) 0%, var(--accent-rose) 100%);
+  border: none;
+  padding: 18px 48px;
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 20px rgba(196,131,106,0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transition: left 0.6s ease;
+}
+
+.cta-btn:hover::before {
+  left: 100%;
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(196,131,106,0.35);
+}
+
+.cta-btn-outline {
+  display: inline-block;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--accent-terracotta);
+  background: transparent;
+  border: 2px solid var(--accent-terracotta);
+  padding: 16px 44px;
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  transition: all 0.3s ease;
+}
+
+.cta-btn-outline:hover {
+  background: var(--accent-terracotta);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.cta-note {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  margin-top: 14px;
+}
+
+/* ===== SECTION HEADINGS ===== */
+.section-heading {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.section-heading .num {
+  display: inline-block;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  color: var(--warm-brown);
+  margin-bottom: 10px;
+}
+
+.section-heading h2 {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: clamp(1.3rem, 5vw, 1.7rem);
+  font-weight: 600;
+  color: var(--deep-brown);
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+}
+
+.section-heading .sub {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-top: 8px;
+}
+
+/* ===== DIVIDER ===== */
+.divider {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.divider span {
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: var(--warm-brown);
+  opacity: 0.3;
+}
+
+/* ===== EMPATHY SECTION ===== */
+.empathy {
+  background: var(--white);
+}
+
+.empathy-lead {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 1.15rem;
+  color: var(--deep-brown);
+  text-align: center;
+  margin-bottom: 36px;
+  font-weight: 500;
+}
+
+.check-list {
+  list-style: none;
+  max-width: 500px;
+  margin: 0 auto 36px;
+}
+
+.check-list li {
+  position: relative;
+  padding: 14px 0 14px 36px;
+  font-size: 0.95rem;
+  color: var(--text-body);
+  border-bottom: 1px solid rgba(139,111,78,0.08);
+}
+
+.check-list li::before {
+  content: '☑';
+  position: absolute;
+  left: 0;
+  top: 14px;
+  color: var(--accent-terracotta);
+  font-size: 1rem;
+}
+
+.empathy-message {
+  text-align: center;
+  padding: 28px 20px;
+  background: var(--highlight-bg);
+  border-radius: 16px;
+  border-left: 4px solid var(--accent-terracotta);
+}
+
+.empathy-message p {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 1.05rem;
+  color: var(--deep-brown);
+  font-weight: 500;
+  line-height: 1.9;
+}
+
+/* ===== REASON SECTION ===== */
+.reason {
+  background: var(--warm-cream);
+}
+
+.reason-text {
+  max-width: 540px;
+  margin: 0 auto;
+  font-size: 0.95rem;
+  line-height: 2.1;
+}
+
+.reason-text p {
+  margin-bottom: 20px;
+}
+
+.reason-highlight {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 28px 24px;
+  margin-top: 28px;
+  text-align: center;
+  border: 1px solid rgba(139,111,78,0.1);
+}
+
+.reason-highlight p {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 1.05rem;
+  color: var(--deep-brown);
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.highlight-word {
+  color: var(--accent-terracotta);
+  font-weight: 700;
+}
+
+/* ===== SALON INTRO ===== */
+.salon-intro {
+  background: var(--white);
+}
+
+.salon-concept {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 24px;
+}
+
+.salon-concept p {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 1.05rem;
+  color: var(--deep-brown);
+  line-height: 2;
+}
+
+.feature-cards {
+  display: grid;
+  gap: 16px;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--highlight-bg);
+  border-radius: 14px;
+  padding: 22px 20px;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+}
+
+.feature-card .icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.feature-card .text h4 {
+  font-size: 0.92rem;
+  color: var(--deep-brown);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.feature-card .text p {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* ===== COMPARISON ===== */
+.comparison {
+  background: var(--warm-cream);
+}
+
+.compare-table {
+  max-width: 540px;
+  margin: 0 auto 32px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+}
+
+.compare-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.compare-header div {
+  padding: 16px;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.compare-header .col-recipe {
+  background: #E8E0D4;
+  color: var(--text-light);
+}
+
+.compare-header .col-salon {
+  background: var(--accent-terracotta);
+  color: var(--white);
+}
+
+.compare-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--white);
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+.compare-row div {
+  padding: 16px 18px;
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+.compare-row .col-recipe {
+  color: var(--text-light);
+  background: rgba(232,224,212,0.2);
+}
+
+.compare-row .col-salon {
+  color: var(--deep-brown);
+  font-weight: 500;
+}
+
+.compare-message {
+  text-align: center;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 1.05rem;
+  color: var(--deep-brown);
+  font-weight: 500;
+  line-height: 1.9;
+  padding: 0 16px;
+}
+
+/* ===== TESTIMONIALS ===== */
+.testimonials {
+  background: var(--white);
+}
+
+.testimonial-cards {
+  display: grid;
+  gap: 18px;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background: var(--warm-cream);
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+}
+
+.testimonial-card::before {
+  content: '"';
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 3rem;
+  color: var(--accent-terracotta);
+  opacity: 0.2;
+  position: absolute;
+  top: 8px;
+  left: 18px;
+  line-height: 1;
+}
+
+.testimonial-card p {
+  font-size: 0.9rem;
+  line-height: 1.9;
+  padding-left: 8px;
+}
+
+.testimonial-card .change {
+  color: var(--accent-terracotta);
+  font-weight: 700;
+}
+
+.testimonial-card .name {
+  display: block;
+  text-align: right;
+  font-size: 0.78rem;
+  color: var(--text-light);
+  margin-top: 10px;
+}
+
+/* ===== FUTURE ===== */
+.future {
+  background: linear-gradient(170deg, var(--highlight-bg) 0%, var(--warm-cream) 100%);
+}
+
+.future-items {
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+.future-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.future-item .bullet {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-terracotta), var(--accent-rose));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 0.75rem;
+  margin-top: 4px;
+}
+
+.future-item p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.future-item strong {
+  color: var(--deep-brown);
+}
+
+/* ===== MINI CTA ===== */
+.mini-cta {
+  text-align: center;
+  background: var(--white);
+  padding: 56px 24px;
+}
+
+.mini-cta p {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 1.1rem;
+  color: var(--deep-brown);
+  margin-bottom: 28px;
+  font-weight: 500;
+}
+
+/* ===== FAQ ===== */
+.faq {
+  background: var(--warm-cream);
+}
+
+.faq-list {
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: var(--white);
+  border-radius: 14px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(139,111,78,0.06);
+}
+
+.faq-q {
+  padding: 20px 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-weight: 500;
+  font-size: 0.92rem;
+  color: var(--deep-brown);
+  transition: background 0.2s;
+  user-select: none;
+}
+
+.faq-q:hover {
+  background: var(--highlight-bg);
+}
+
+.faq-q .q-label {
+  flex-shrink: 0;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-weight: 700;
+  color: var(--accent-terracotta);
+  font-size: 1rem;
+}
+
+.faq-q .arrow {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--text-light);
+  transition: transform 0.3s;
+}
+
+.faq-item.open .faq-q .arrow {
+  transform: rotate(180deg);
+}
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.faq-item.open .faq-a {
+  max-height: 300px;
+  padding: 0 24px 20px 54px;
+}
+
+.faq-a p {
+  font-size: 0.88rem;
+  color: var(--text-body);
+  line-height: 1.9;
+}
+
+/* ===== CLOSING ===== */
+.closing {
+  text-align: center;
+  background: linear-gradient(170deg, var(--soft-beige) 0%, #EDE4D6 50%, var(--warm-cream) 100%);
+  padding: 80px 24px;
+  position: relative;
+}
+
+.closing-copy {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: clamp(1.2rem, 5vw, 1.6rem);
+  font-weight: 600;
+  color: var(--deep-brown);
+  line-height: 2;
+  margin-bottom: 12px;
+}
+
+.closing-sub {
+  font-size: 0.95rem;
+  color: var(--text-body);
+  margin-bottom: 36px;
+  line-height: 1.9;
+}
+
+.closing-last {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  margin-top: 40px;
+  font-style: italic;
+  line-height: 1.9;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 32px 24px;
+  font-size: 0.75rem;
+  color: var(--text-light);
+  background: var(--warm-cream);
+  border-top: 1px solid rgba(139,111,78,0.08);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+  section {
+    padding: 56px 0;
+  }
+  
+  .container {
+    padding: 0 20px;
+  }
+  
+  .cta-btn {
+    padding: 16px 36px;
+    font-size: 0.95rem;
+    width: 100%;
+    max-width: 320px;
+  }
+  
+  .cta-btn-outline {
+    padding: 14px 32px;
+    width: 100%;
+    max-width: 320px;
+  }
+  
+  .compare-row div,
+  .compare-header div {
+    padding: 12px 14px;
+    font-size: 0.8rem;
+  }
+}
+
+/* ===== GRAIN OVERLAY ===== */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 1. HERO / FIRST VIEW ===== -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-deco">🍩</div>
+    <span class="hero-label">ONLINE SALON</span>
+    <h1 class="hero-copy">
+      もう失敗しない、<br>
+      翌日も<em>もちもちしっとり</em><br>米粉パン
+    </h1>
+    <p class="hero-sub">
+      焼きたてはおいしいのに、翌日カチカチ。<br>
+      レシピ通りなのにうまくいかない。<br>
+      そんな悩みを卒業できる場所があります。
+    </p>
+    <a href="https://line.me/R/ti/p/%40823nqjeb" class="cta-btn" target="_blank" rel="noopener">今すぐ申し込む</a>
+    <p class="cta-note">※ 数ヶ月に一度の限定募集です</p>
+  </div>
+</section>
+
+<!-- ===== 2. EMPATHY ===== -->
+<section class="empathy">
+  <div class="container animate-on-scroll">
+    <div class="section-heading">
+      <span class="num">POINT 01</span>
+      <h2>こんな経験、ありませんか？</h2>
+    </div>
+    
+    <ul class="check-list">
+      <li>焼きたてはいいのに、翌日にはカチカチ…</li>
+      <li>レシピ通りに作っているのに、なぜかうまくいかない</li>
+      <li>米粉パンがふわふわにならない。固い、ボソボソする</li>
+      <li>「米粉パンって、こんなものなのかな…」と諦めかけている</li>
+      <li>正直、米粉パンはおいしくないと思い始めている</li>
+      <li>でも本当は、おいしい米粉パンを焼けるようになりたい</li>
+    </ul>
+    
+    <div class="empathy-message">
+      <p>うまくいかないのは、<br>あなたの<span class="highlight-word">努力不足ではありません。</span></p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span></span></div>
+
+<!-- ===== 3. REASON ===== -->
+<section class="reason">
+  <div class="container animate-on-scroll">
+    <div class="section-heading">
+      <span class="num">POINT 02</span>
+      <h2>米粉パンが<br>うまくいかない本当の理由</h2>
+    </div>
+    
+    <div class="reason-text">
+      <p>
+        米粉パンの失敗は、センスの問題でも、経験不足でもありません。
+      </p>
+      <p>
+        実は多くの方が「レシピさえあればうまくいく」と思っています。<br>
+        でも米粉パンは、小麦パンとは性質がまったく違います。
+      </p>
+      <p>
+        レシピの分量だけではなく、<strong>「生地の状態を見て、理解すること」</strong>が何より大切なのです。
+      </p>
+      <p>
+        <span class="highlight-word">お米パンは生き物。</span><br>
+        温度、湿度、発酵の具合——同じレシピでも、その日の状態で変わります。<br>
+        だからこそ、数字だけでは追いきれない。<br>
+        ほんの小さなコツを知るだけで、米粉パンは驚くほど変わります。
+      </p>
+      
+      <div class="reason-highlight">
+        <p>難しい理論は必要ありません。<br><span class="highlight-word">生地を理解すると、<br>米粉パンはぐっとシンプルになります。</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. SALON INTRO ===== -->
+<section class="salon-intro">
+  <div class="container animate-on-scroll">
+    <div class="section-heading">
+      <span class="num">POINT 03</span>
+      <h2>だから作ったのが<br>ドーナツ部PLUS+です</h2>
+    </div>
+    
+    <div class="salon-concept">
+      <p>
+        ここは、失敗を繰り返す場所じゃなくて、<br>
+        <strong class="highlight-word">失敗を「卒業」するためのオンラインサロン。</strong>
+      </p>
+      <p style="margin-top: 12px; font-family: 'Zen Maru Gothic', sans-serif; font-size: 0.88rem; color: var(--text-light);">
+        米粉パンを"ちゃんとおいしく作れる"ようになる<br>パンとおやつとお料理のサロンです。
+      </p>
+    </div>
+    
+    <div class="feature-cards">
+      <div class="feature-card">
+        <div class="icon">🎬</div>
+        <div class="text">
+          <h4>動画レッスンで丁寧に解説</h4>
+          <p>生地の状態がわかるから、文字だけのレシピより確実に上達できます</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="icon">💬</div>
+        <div class="text">
+          <h4>質問OK（DMでも投稿でも）</h4>
+          <p>「この材料がないけど代わりに何が使える？」「発酵はこれくらいで大丈夫？」「保存方法は？」など、レシピ通りにいかない"リアルな困りごと"を気軽に相談できます。アレンジ方法や代替品の相談もOKです</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="icon">📋</div>
+        <div class="text">
+          <h4>毎月3品以上の新作レシピ</h4>
+          <p>米粉パン・おやつ・30分以内で作れるおかずレシピを毎月お届け</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="icon">📄</div>
+        <div class="text">
+          <h4>PDFレシピで保存OK</h4>
+          <p>いつでも見返せるPDF配信。キッチンでも手軽に確認できます</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="icon">💡</div>
+        <div class="text">
+          <h4>毎月のあやみん豆知識</h4>
+          <p>栄養・食材選び・米粉の扱い方など、暮らしに役立つ知識をお届けします</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span></span></div>
+
+<!-- ===== 5. COMPARISON ===== -->
+<section class="comparison">
+  <div class="container animate-on-scroll">
+    <div class="section-heading">
+      <span class="num">POINT 04</span>
+      <h2>レシピ購入との違い</h2>
+    </div>
+    
+    <div class="compare-table">
+      <div class="compare-header">
+        <div class="col-recipe">レシピ購入</div>
+        <div class="col-salon">ドーナツ部PLUS+</div>
+      </div>
+      <div class="compare-row">
+        <div class="col-recipe">レシピを見て自分で試行錯誤</div>
+        <div class="col-salon">動画で生地の状態まで理解できる</div>
+      </div>
+      <div class="compare-row">
+        <div class="col-recipe">わからなくなると止まる</div>
+        <div class="col-salon">いつでも質問できる</div>
+      </div>
+      <div class="compare-row">
+        <div class="col-recipe">失敗の原因がわからない</div>
+        <div class="col-salon">なぜ失敗したかが理解できる</div>
+      </div>
+      <div class="compare-row">
+        <div class="col-recipe">レシピが増えるだけ</div>
+        <div class="col-salon">「作れる自分」になれる</div>
+      </div>
+    </div>
+    
+    <p class="compare-message">
+      レシピを集める場所ではなく、<br><span class="highlight-word">「作れるようになる」場所です。</span>
+    </p>
+  </div>
+</section>
+
+<!-- ===== 6. TESTIMONIALS ===== -->
+<section class="testimonials">
+  <div class="container animate-on-scroll">
+    <div class="section-heading">
+      <span class="num">POINT 05</span>
+      <h2>参加者の変化</h2>
+      <p class="sub">ドーナツ部体験者の声をご紹介します</p>
+    </div>
+    
+    <div class="testimonial-cards">
+      <div class="testimonial-card">
+        <p>米粉パン作りが楽しくなった！食べたい、作りたい、<span class="change">簡単だからすぐ行動できる。</span></p>
+      </div>
+      <div class="testimonial-card">
+        <p>焼きたてはもちろん、<span class="change">次の日もしっとりふわふわ！</span>今まで翌日カチカチだったのが嘘みたいです。</p>
+      </div>
+      <div class="testimonial-card">
+        <p>毎日なにを作ろうか悩むくらいたくさんのレシピをいただき、<span class="change">生活が豊かになりました！</span></p>
+      </div>
+      <div class="testimonial-card">
+        <p>パンなどを<span class="change">罪悪感なしで食べられる♡</span>基本の生地が同じなので、作るハードルが下がりバリエーションも豊富！</p>
+      </div>
+      <div class="testimonial-card">
+        <p>ドーナツ、パン作りが難しい印象から、<span class="change">簡単・楽しい・美味しいに変わった！</span></p>
+      </div>
+      <div class="testimonial-card">
+        <p><span class="change">一生のレシピを私は手に入れました！</span>米粉パン作ろ＝あやみんレシピです！</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span></span></div>
+
+<!-- ===== 7. FUTURE ===== -->
+<section class="future">
+  <div class="container animate-on-scroll">
+    <div class="section-heading">
+      <span class="num">POINT 06</span>
+      <h2>ドーナツ部PLUS+で<br>手に入る未来</h2>
+    </div>
+    
+    <div class="future-items">
+      <div class="future-item">
+        <div class="bullet">✓</div>
+        <p><strong>翌日もしっとりもちもち</strong>の米粉パンが、あなたのキッチンから生まれます</p>
+      </div>
+      <div class="future-item">
+        <div class="bullet">✓</div>
+        <p>「今日は何を作ろう？」と<strong>献立に悩む時間がぐっと減ります</strong></p>
+      </div>
+      <div class="future-item">
+        <div class="bullet">✓</div>
+        <p>失敗を恐れず、<strong>パン作りが純粋に楽しくなります</strong></p>
+      </div>
+      <div class="future-item">
+        <div class="bullet">✓</div>
+        <p>「これ、私が作ったの」と<strong>家族に喜んでもらえる自信</strong>がつきます</p>
+      </div>
+      <div class="future-item">
+        <div class="bullet">✓</div>
+        <p>"がんばる料理"じゃなくて、<strong>続けられる料理</strong>が日常になります</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8. MINI CTA ===== -->
+<section class="mini-cta animate-on-scroll">
+  <div class="container">
+    <p>少しでも「変わりたい」と思ったら——</p>
+    <a href="https://line.me/R/ti/p/%40823nqjeb" class="cta-btn-outline" target="_blank" rel="noopener">参加内容を確認する</a>
+  </div>
+</section>
+
+<div class="divider"><span></span></div>
+
+<!-- ===== 9. FAQ ===== -->
+<section class="faq">
+  <div class="container animate-on-scroll">
+    <div class="section-heading">
+      <span class="num">FAQ</span>
+      <h2>よくあるご質問</h2>
+    </div>
+    
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span class="q-label">Q</span>
+          <span>初心者ですが参加できますか？</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          <p>はい、もちろんです。ドーナツ部PLUS+は初心者の方にこそおすすめのサロンです。難しい理論からではなく、生地の状態を理解することから始めるので、特別な技術がなくても大丈夫。動画レッスンで丁寧に解説していますので、安心してご参加ください。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span class="q-label">Q</span>
+          <span>レシピ購入との違いは何ですか？</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          <p>レシピ購入は「レシピを手に入れること」がゴールですが、ドーナツ部PLUS+は「作れるようになること」がゴールです。動画での解説、質問できる環境、生地の理解を深めるサポートがあるので、ひとりで試行錯誤する必要がありません。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span class="q-label">Q</span>
+          <span>質問はどうやってすればいいですか？</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          <p>DMでも投稿でも、お好きな方法で質問していただけます。「こんなこと聞いていいのかな」ということでも大丈夫です。わからないことがあれば、気軽に聞いてくださいね。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span class="q-label">Q</span>
+          <span>途中から参加できますか？</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          <p>はい、途中参加も可能です！今回から、数ヶ月に一度募集をしていきます。過去のレシピや動画もすべてご覧いただけるので、途中からでも安心してスタートできます。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span class="q-label">Q</span>
+          <span>ドーナツ生地を持っていなくても参加できますか？</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          <p>はい！ドーナツ生地を持っていなくても入部OK です。入部後、会員限定価格で手に入れることができます。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span class="q-label">Q</span>
+          <span>海外からでも参加できますか？</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          <p>はい、オンラインサロンなので海外からもご参加いただけます。自分の手でおいしい米粉パンを作れるようになりたい方、ぜひお待ちしています。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 10. CLOSING ===== -->
+<section class="closing" id="apply">
+  <div class="container animate-on-scroll">
+    <p class="closing-copy">
+      もう失敗しない、<br>
+      翌日ももちもちしっとり<br>米粉パンへ。
+    </p>
+    <p class="closing-sub">
+      ドーナツ部PLUS+は、<br>
+      「作れるようになる」ための場所です。
+    </p>
+    
+    <a href="https://line.me/R/ti/p/%40823nqjeb" class="cta-btn" target="_blank" rel="noopener" style="animation: gentlePulse 3s ease-in-out infinite;">今すぐ申し込む</a>
+    <p class="cta-note">※ 次の募集は数ヶ月後です</p>
+    
+    <p class="closing-last">
+      次にパンを焼く日が、<br>ちょっと楽しみになりますように。
+    </p>
+  </div>
+</section>
+
+<footer>
+  <p>© ドーナツ部PLUS+ All Rights Reserved.</p>
+</footer>
+
+<script>
+// Scroll animation observer
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>
